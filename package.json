@@ -1,0 +1,47 @@
+{
+  "name": "aliyun-oss-webpack",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "",
+  "description": "a webpack(version>=4) plugin to upload assets to aliyun oss, can be used with or without webpack.",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webpack-all-project/aliyun-oss-webpack"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/webpack-all-project/aliyun-oss-webpack",
+  "keywords": [
+    "webpack",
+    "aliyun-oss",
+    "aliyun",
+    "oss",
+    "plugin",
+    "assets"
+  ],
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.spec.js"
+    ]
+  },
+  "dependencies": {
+    "ali-oss": "^6.10.0",
+    "colors": "^1.3.2",
+    "fs-extra": "^8.1.0",
+    "globby": "^10.0.1",
+    "listr": "^0.14.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "webpack": "^4.0.0"
+  }
+}
