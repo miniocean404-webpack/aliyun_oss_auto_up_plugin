@@ -7,6 +7,6 @@ function normalize(url) {
   return url
 }
 
-module.exports ={
-  normalize
+module.exports = {
+  normalize,
 }

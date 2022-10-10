@@ -1,4 +1,4 @@
- function checkOptions(options = {}) {
+function checkOptions(options = {}) {
   let { from, region, accessKeyId, accessKeySecret, bucket, ossOptions } = options
 
   let errStr = ''
@@ -18,7 +18,6 @@
   return errStr
 }
 
-
-module.exports ={
-  checkOptions
+module.exports = {
+  checkOptions,
 }

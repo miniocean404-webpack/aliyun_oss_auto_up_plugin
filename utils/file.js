@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
- function getBasePath(inWebpack, outputPath, isHaveSetOssPath) {
+function getBasePath(inWebpack, outputPath, isHaveSetOssPath) {
   if (isHaveSetOssPath) return ''
 
   let basePath = ''
@@ -18,7 +18,7 @@ const path = require('path')
   return slash(basePath)
 }
 
- function slash(path) {
+function slash(path) {
   const isExtendedLengthPath = /^\\\\\?\\/.test(path)
   // const hasNonAscii = /[^\u0000-\u0080]+/.test(path);
 
@@ -29,7 +29,7 @@ const path = require('path')
   return path.replace(/\\/g, '/')
 }
 
- function deleteEmptyDir(filePath) {
+function deleteEmptyDir(filePath) {
   let dirname = path.dirname(filePath)
   if (fs.existsSync(dirname) && fs.statSync(dirname).isDirectory()) {
     fs.readdir(dirname, (err, files) => {
@@ -41,7 +41,7 @@ const path = require('path')
   }
 }
 
- function ossFileExists(filepath, client) {
+function ossFileExists(filepath, client) {
   // return this.client.get(filepath)
   return client
     .head(filepath)
@@ -53,9 +53,9 @@ const path = require('path')
     })
 }
 
-module.exports ={
+module.exports = {
   ossFileExists,
   deleteEmptyDir,
   slash,
-  getBasePath
+  getBasePath,
 }

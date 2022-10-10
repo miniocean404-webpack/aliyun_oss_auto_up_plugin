@@ -1,7 +1,7 @@
-const  globby  = require('globby')
-const {upload} = require('./upload')
+const globby = require('globby')
+const { upload } = require('./upload')
 
- async function doWithoutWebpack() {
+async function doWithoutWebpack() {
   if (this.configErrStr) return Promise.reject(this.configErrStr)
 
   const { from } = this.config
@@ -9,18 +9,18 @@ const {upload} = require('./upload')
 
   if (files.length) {
     try {
-      await upload.call(this,files)
+      await upload.call(this, files)
       console.log('')
-      console.log(' All files uploaded successfully '.bgGreen.bold.white)
+      console.log('\r\n 所有文件成功上传 '.bgGreen.bold.white)
     } catch (err) {
       return Promise.reject(err)
     }
   } else {
-    console.log('no files to be uploaded')
-    return Promise.resolve('no files to be uploaded')
+    console.log('没有文件被上传')
+    return Promise.resolve('没有文件被上传')
   }
 }
 
 module.exports = {
-  doWithoutWebpack
+  doWithoutWebpack,
 }
