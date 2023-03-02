@@ -2,6 +2,7 @@ const globby = require('globby')
 const path = require('path')
 const { upload } = require('./upload')
 const { slash } = require('../utils/file')
+const fs = require('fs')
 
 function doWithWebpack(compiler) {
   compiler.hooks.afterEmit.tapPromise('WebpackAliyunOss', async (compilation) => {
@@ -21,6 +22,10 @@ function doWithWebpack(compiler) {
       try {
         await upload.call(this, files, true, outputPath)
         console.log('\r\n 所有文件成功上传 '.bgGreen.bold.white)
+
+        from.map((item) => {
+          fs.rmdirSync(slash(path.resolve(item)), { recursive: true })
+        })
       } catch (err) {
         compilation.errors.push(err)
         return Promise.reject(err)
@@ -30,6 +35,8 @@ function doWithWebpack(compiler) {
       return Promise.resolve('没有文件被上传')
     }
   })
+
+  compiler.hooks.done.tap('WebpackAliyunOss', () => {})
 }
 
 module.exports = {
