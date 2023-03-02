@@ -36,7 +36,9 @@ function doWithWebpack(compiler) {
     }
   })
 
-  compiler.hooks.done.tap('WebpackAliyunOss', () => {})
+  compiler.hooks.done.tap('WebpackAliyunOss', () => {
+    // 编译结束
+  })
 }
 
 module.exports = {
